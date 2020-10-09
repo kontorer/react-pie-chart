@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Switch, Route, Redirect} from 'react-router-dom'
+
+import Navbar from './components/Navbar'
+import ChartPage from './pages/ChartPage'
+import FormPage from './pages/FormPage'
+import {ContextProvider} from "./ListContext"
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ContextProvider>
+            <div>
+                <Navbar />
+                <Switch>
+                    <Route exact path="/">
+                        <FormPage />
+                    </Route>
+                    <Route path="/view">
+                        <ChartPage />
+                    </Route>
+                    <Redirect to="/" />
+                </Switch>
+            </div>
+        </ContextProvider>
+    )
 }
 
-export default App;
+export default App
