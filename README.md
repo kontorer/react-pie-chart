@@ -7,7 +7,8 @@ Created with `create-react-app`, it uses no additional libraries for visualizati
 Pie Chart is only created with `svg`.
 
 ## How to use
-The app is pretty intuitive in use. You can add your data with Title and Amount input fields and view the resuling chart by clicking the **View** button. You can edit and delete items with no need to manually save updates. 
+The app is pretty intuitive in use. You can add your data with **Title** and **Amount** input fields and view the resuling chart by clicking the **View** button. <br>
+You can edit and delete items with no need to manually save updates. 
 
 ## Features
 <ul>
