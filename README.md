@@ -17,7 +17,7 @@ You can edit and delete items with no need to manually save updates.
 	<li>Pie chart is made with svg only.</li>
 	<li>Each sector has its randomly generated color.</li>
 	<li>Sector title appears on hover.</li>
-	<li>* Each sector has its caption connected to chart.</li>
+	<li>* <b>Each sector has its caption shown and connected to chart.</b></li>
 	<br>
 	<li>All inputs are validated in a few ways.</li>
 	<li>You can add as much positions as you need.</li>
