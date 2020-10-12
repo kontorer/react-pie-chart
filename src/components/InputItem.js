@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useContext} from 'react'
 
 import {Context} from '../ListContext'
 
@@ -6,21 +6,21 @@ import {Context} from '../ListContext'
 export default function InputItem(props) {
 	const {title, amount, id} = props
 
-	const {updateList, editItem} = useContext(Context)
+	const {editItem, removeItem} = useContext(Context)
 
 	const validateField = e => {
 		const {name, value} = e.target
 		if(value === "") {
 			e.target.classList.add("warning") 
 		}
-		else if(name === "amount" && isNaN(parseInt(value, 10))) {
-			console.log(5)
-			e.target.focus()	
+		if(name === "amount" && isNaN(parseInt(value, 10))) {
+			e.target.value = 0
 		}
 	}
 
-	const handleUpdate = e => {
-		updateList(e.target.value)
+	const handleRemove = (e, id) => {
+		e.preventDefault()
+		removeItem(id)
 	}
 
 	return (
@@ -44,6 +44,12 @@ export default function InputItem(props) {
 				placeholder="Amount"
 				onFocus={e => e.target.classList.remove("warning")}
 				onBlur={e => validateField(e)}
+			/>
+			<input 
+				className="remove-button"
+				type="submit" 
+				value="remove"
+				onClick={e => handleRemove(e, id)}
 			/>
 		</form>
 	)

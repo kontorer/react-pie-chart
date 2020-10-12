@@ -6,13 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  padding-bottom: 20px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 
 .navbar {
 	height: 60px;
@@ -21,13 +21,16 @@ code {
 	justify-content: space-around;
 }
 
+a {
+	text-decoration: none;
+	color: #000;
+}
+
 .navbar a {
 	display: block;
 	width: 100%;
 	text-align: center;
 	padding: 15px;
-	text-decoration: none;
-	color: #000;
 	font-size: 1.2rem;
 	font-weight: 600;
 }
@@ -61,6 +64,13 @@ input:nth-child(1) {
 	width: 300px;
 }
 
+.remove-button {
+	background: #d34;
+	color: white;
+	border-bottom: 2px solid #a11;
+	cursor: pointer;
+}
+
 button {
 	border: none;
 	padding: 10px 15px;
@@ -71,8 +81,8 @@ button {
 svg {
 	display: block;
 	height: 600px;
-	background: #eef;
 	margin: 0 auto;
+	margin-top: -50px;
 }
 
 polyline {
@@ -84,4 +94,18 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.empty-message {
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	height: 40px;
+	background-color: #f7f7f7;
+	padding: 10px;
+	border-radius: 10px;
+	border-bottom: 2px solid #eee;
 }
