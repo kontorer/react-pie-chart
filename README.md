@@ -15,5 +15,5 @@ The app is pretty intuitive in use. You can add your data with Title and Amount 
 	<li>Pie chart is made with svg only.</li>
 	<li>Each sector has its randomly generated color.</li>
 	<li>Sector title appears on hover.</li>
-	<li>* Each sector has its caption connected to chart sector.</li>
+	<li>* Each sector has its caption connected to chart.</li>
 </ul>
