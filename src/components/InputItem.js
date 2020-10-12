@@ -4,23 +4,19 @@ import {Context} from '../ListContext'
 
 
 export default function InputItem(props) {
-	const [title, setTitle] = useState('')
-	const [amount, setAmount] = useState('')
+	const {title, amount, id} = props
 
-	const {updateList} = useContext(Context)
+	const {updateList, editItem} = useContext(Context)
 
-
-	useEffect(() => {
-		if(props) {
-			setTitle(props.t)
-			setAmount(props.a)
+	const validateField = e => {
+		const {name, value} = e.target
+		if(value === "") {
+			e.target.classList.add("warning") 
 		}
-	}, [props])
-
-	const handleChange = e => {
-		e.target.name === "title" ?
-			setTitle(e.target.value) :
-			setAmount(e.target.value)
+		else if(name === "amount" && isNaN(parseInt(value, 10))) {
+			console.log(5)
+			e.target.focus()	
+		}
 	}
 
 	const handleUpdate = e => {
@@ -32,18 +28,20 @@ export default function InputItem(props) {
 			<input 
 				type="text" 
 				name="title" 
-				value={title || ''} 
-				onChange={handleChange} 
+				value={title} 
+				onChange={e => editItem(e, id)} 
 				placeholder="Title"
-				onBlur={handleUpdate}
+				onFocus={e => e.target.classList.remove("warning")}
+				onBlur={e => validateField(e)}
 			/>
 			<input 
 				type="text" 
 				name="amount" 
-				value={amount || ''} 
-				onChange={handleChange} 
+				value={amount} 
+				onChange={e => editItem(e, id)} 
 				placeholder="Amount"
-				onBlur={handleUpdate}
+				onFocus={e => e.target.classList.remove("warning")}
+				onBlur={e => validateField(e)}
 			/>
 		</form>
 	)

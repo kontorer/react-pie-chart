@@ -4,14 +4,42 @@ import React, {useState} from "react"
 const Context = React.createContext()
 
 function ContextProvider(props) {
-	const [items, setItems] = useState([{title: "apples", value: 24}, {title: "oranges", value: 8}])
+	const [items, setItems] = useState([{title: "apples", amount: 24, id: 89, color: "rgb(200,150,160)"}, {title: "oranges", amount: 8, id: 203, color: "rgb(200,200,200)"}])
 
 	const updateList = (c) => {
 		console.log("update", c)
 	}
 
+	const addItem = () => {
+		const id = new Date().valueOf()
+		const color = `rgb(${Math.random() * 250}, ${Math.random() * 250}, ${Math.random() * 250})`
+		setItems(prev => [...prev, {title: "", amount: 0, id, color}])
+	}
+
+	const editItem = (e, id) => {
+		const {name, value} = e.target
+		const upd = items.map(el => {
+			if(el.id === id){
+				el[name] = value
+			}
+			return el
+		})
+		setItems(upd)
+	}
+
+	const deleteItem = () => {
+
+	}
+
+	const parseAmounts = () => {
+		const parsed = items.map(item => {
+			return isNaN(parseInt(item.amount)) ? {...item, amount: 0} : {...item, amount: parseInt(item.amount)}
+		})
+		setItems(parsed)
+	}
+
 	return (
-		<Context.Provider value={{items, updateList}}>
+		<Context.Provider value={{items, updateList, editItem, addItem, parseAmounts}}>
 			{props.children}
 		</Context.Provider>
 	)
