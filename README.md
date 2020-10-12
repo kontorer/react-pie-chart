@@ -18,4 +18,7 @@ You can edit and delete items with no need to manually save updates.
 	<li>Each sector has its randomly generated color.</li>
 	<li>Sector title appears on hover.</li>
 	<li>* Each sector has its caption connected to chart.</li>
+	<br>
+	<li>All inputs are validated in a few ways.</li>
+	<li>You can add as much positions as you need.</li>
 </ul>
