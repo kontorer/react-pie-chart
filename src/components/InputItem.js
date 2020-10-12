@@ -27,6 +27,7 @@ export default function InputItem(props) {
 		<form>
 			<input 
 				type="text" 
+				maxLength="20"
 				name="title" 
 				value={title} 
 				onChange={e => editItem(e, id)} 
@@ -35,7 +36,8 @@ export default function InputItem(props) {
 				onBlur={e => validateField(e)}
 			/>
 			<input 
-				type="text" 
+				type="number" 
+				min="0"
 				name="amount" 
 				value={amount} 
 				onChange={e => editItem(e, id)} 

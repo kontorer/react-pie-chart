@@ -54,6 +54,11 @@ input {
 	border-radius: 0;
 	background: #f9f9f9;
 	outline: none;
+	padding: 5px;
+}
+
+input:nth-child(1) {
+	width: 300px;
 }
 
 button {
@@ -64,7 +69,19 @@ button {
 }
 
 svg {
-	height: 300px;
+	display: block;
+	height: 600px;
 	background: #eef;
-	padding: 100px;
+	margin: 0 auto;
+}
+
+polyline {
+	z-index: 1000;
+	width: 1px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
